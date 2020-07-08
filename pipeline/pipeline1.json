@@ -51,6 +51,12 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"command": "cmd /c bteq_transform.bat",
+					"resourceLinkedService": {
+						"referenceName": "azuretrainingecruz",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "data",
 					"referenceObjects": {
 						"linkedServices": [],
 						"datasets": []
