@@ -27,7 +27,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "ecruz",
+					"referenceName": "AzureBatch1",
 					"type": "LinkedServiceReference"
 				}
 			},
@@ -63,7 +63,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "ecruz",
+					"referenceName": "AzureBatch1",
 					"type": "LinkedServiceReference"
 				}
 			}
