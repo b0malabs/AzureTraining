@@ -1,0 +1,67 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Load to Vantage",
+				"type": "Custom",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"command": "cmd /c tbuild_load.bat",
+					"resourceLinkedService": {
+						"referenceName": "azuretrainingecruz",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "data",
+					"referenceObjects": {
+						"linkedServices": [],
+						"datasets": []
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "ecruz",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transform in Vantage",
+				"type": "Custom",
+				"dependsOn": [
+					{
+						"activity": "Load to Vantage",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"referenceObjects": {
+						"linkedServices": [],
+						"datasets": []
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "ecruz",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
