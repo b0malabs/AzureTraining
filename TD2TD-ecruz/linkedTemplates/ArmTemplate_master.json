@@ -11,21 +11,21 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'azuretrainingecruz'"
 		},
-		"ecruz_accessKey": {
+		"AzureBatch1_accessKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accessKey' of 'ecruz'"
+			"metadata": "Secure string for 'accessKey' of 'AzureBatch1'"
 		},
-		"ecruz_properties_typeProperties_accountName": {
+		"AzureBatch1_properties_typeProperties_accountName": {
 			"type": "string",
 			"defaultValue": "ecruz"
 		},
-		"ecruz_properties_typeProperties_batchUri": {
+		"AzureBatch1_properties_typeProperties_batchUri": {
 			"type": "string",
 			"defaultValue": "https://ecruz.eastus.batch.azure.com"
 		},
-		"ecruz_properties_typeProperties_poolName": {
+		"AzureBatch1_properties_typeProperties_poolName": {
 			"type": "string",
-			"defaultValue": "ecruz  "
+			"defaultValue": "ecruz"
 		},
 		"containerUri": {
 			"type": "string",
@@ -57,17 +57,17 @@
 					"azuretrainingecruz_connectionString": {
 						"value": "[parameters('azuretrainingecruz_connectionString')]"
 					},
-					"ecruz_accessKey": {
-						"value": "[parameters('ecruz_accessKey')]"
+					"AzureBatch1_accessKey": {
+						"value": "[parameters('AzureBatch1_accessKey')]"
 					},
-					"ecruz_properties_typeProperties_accountName": {
-						"value": "[parameters('ecruz_properties_typeProperties_accountName')]"
+					"AzureBatch1_properties_typeProperties_accountName": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_accountName')]"
 					},
-					"ecruz_properties_typeProperties_batchUri": {
-						"value": "[parameters('ecruz_properties_typeProperties_batchUri')]"
+					"AzureBatch1_properties_typeProperties_batchUri": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]"
 					},
-					"ecruz_properties_typeProperties_poolName": {
-						"value": "[parameters('ecruz_properties_typeProperties_poolName')]"
+					"AzureBatch1_properties_typeProperties_poolName": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_poolName')]"
 					}
 				}
 			},

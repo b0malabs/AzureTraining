@@ -11,38 +11,27 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'azuretrainingecruz'"
 		},
-		"ecruz_accessKey": {
+		"AzureBatch1_accessKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accessKey' of 'ecruz'"
+			"metadata": "Secure string for 'accessKey' of 'AzureBatch1'"
 		},
-		"ecruz_properties_typeProperties_accountName": {
+		"AzureBatch1_properties_typeProperties_accountName": {
 			"type": "string",
 			"defaultValue": "ecruz"
 		},
-		"ecruz_properties_typeProperties_batchUri": {
+		"AzureBatch1_properties_typeProperties_batchUri": {
 			"type": "string",
 			"defaultValue": "https://ecruz.eastus.batch.azure.com"
 		},
-		"ecruz_properties_typeProperties_poolName": {
+		"AzureBatch1_properties_typeProperties_poolName": {
 			"type": "string",
-			"defaultValue": "ecruz  "
+			"defaultValue": "ecruz"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"description": "Teradata Vantage on Azure training",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
@@ -74,7 +63,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "ecruz",
+							"referenceName": "AzureBatch1",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -110,7 +99,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "ecruz",
+							"referenceName": "AzureBatch1",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -118,8 +107,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ecruz')]",
-				"[concat(variables('factoryId'), '/linkedServices/azuretrainingecruz')]"
+				"[concat(variables('factoryId'), '/linkedServices/azuretrainingecruz')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]"
 			]
 		},
 		{
@@ -136,20 +125,31 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ecruz')]",
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"description": "Teradata Vantage on Azure training",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBatch1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"type": "AzureBatch",
 				"typeProperties": {
-					"accountName": "[parameters('ecruz_properties_typeProperties_accountName')]",
+					"accountName": "[parameters('AzureBatch1_properties_typeProperties_accountName')]",
 					"accessKey": {
 						"type": "SecureString",
-						"value": "[parameters('ecruz_accessKey')]"
+						"value": "[parameters('AzureBatch1_accessKey')]"
 					},
-					"batchUri": "[parameters('ecruz_properties_typeProperties_batchUri')]",
-					"poolName": "[parameters('ecruz_properties_typeProperties_poolName')]",
+					"batchUri": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]",
+					"poolName": "[parameters('AzureBatch1_properties_typeProperties_poolName')]",
 					"linkedServiceName": {
 						"referenceName": "azuretrainingecruz",
 						"type": "LinkedServiceReference"

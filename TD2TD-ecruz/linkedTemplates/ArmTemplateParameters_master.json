@@ -8,17 +8,17 @@
 		"azuretrainingecruz_connectionString": {
 			"value": ""
 		},
-		"ecruz_accessKey": {
+		"AzureBatch1_accessKey": {
 			"value": ""
 		},
-		"ecruz_properties_typeProperties_accountName": {
+		"AzureBatch1_properties_typeProperties_accountName": {
 			"value": "ecruz"
 		},
-		"ecruz_properties_typeProperties_batchUri": {
+		"AzureBatch1_properties_typeProperties_batchUri": {
 			"value": "https://ecruz.eastus.batch.azure.com"
 		},
-		"ecruz_properties_typeProperties_poolName": {
-			"value": "ecruz  "
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"value": "ecruz"
 		},
 		"containerUri": {
 			"value": ""
